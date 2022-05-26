@@ -100,14 +100,21 @@ main {
     text-decoration: underline;
 }
 
+/* weather card styling */
+
 .current-weather-card {
-    position:fixed;
-    left:700px;
+  
     justify-items: center;
     text-align: center;
     box-shadow: 2px 5px 8px #888888;
     padding:1.5rem;
-    color:var(--dark-orange)
+    color:var(--dark-orange);
+    display:inline-block
+}
+
+.current-weather-card h2{
+    font-weight: 800;
+    font-style:italic ;
 }
 
 .info-titles {
@@ -117,7 +124,7 @@ main {
 
 .info-table {
     border:3px solid var(--dark-green);
-    margin:1.5rem;
+    margin:1rem;
     border-spacing:10px;
 }
 
@@ -130,7 +137,15 @@ table, th, td {
   }
 
 
-
+  .future-weather-card {
+  
+    justify-items: center;
+    text-align: center;
+    box-shadow: 2px 5px 8px #888888;
+    padding:1.5rem;
+    color:var(--dark-orange);
+    display:inline-block
+}
 
 /* media queries */
 
