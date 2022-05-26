@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./Assets/Images/favicon.png">
+    <link rel="stylesheet" href="./Assets/CSS/styles.css" />
+  </head>
+  <body>
+    <!--Navbar-->
+
+    <div class="topnav" id="myTopnav">
+      <a  href="./index.html"><i class="fa-solid fa-bolt myIcons"></i>Home</a>
+      <a
+        href="https://www.airbnb.co.uk/?c=.pi0.pk179260836_12837552276&ghost=true&gclid=CjwKCAjwp7eUBhBeEiwAZbHwkdy98RxdwhuqXUaAZqYQAEa4D7FrzULsaxj9786baW52jgYQkZwiMRoCVOgQAvD_BwE"
+        target="_blank"
+        ><i class="fa-solid fa-house-chimney myIcons"></i>Airbnb</a
+      >
+      <a href="https://www.tripadvisor.co.uk/" target="_blank"><i class="fa-solid fa-hotel myIcons"></i>Trip Advisor</a>
+      <a href="https://www.google.com/maps" target="_blank"><i class="fa-solid fa-map-location-dot myIcons"></i>Google Maps</a>
+      <a href="https://www.enterprise.co.uk/en/home.html" target="_blank"><i class="fa-solid fa-car myIcons"></i>Car Hire</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </div>
+
+  <main>
+   <!--Hero-->
+   <div class="hero-div">
+     <div class="text-div">
+     <h2>Welcome to the weather Dashboard</h2>
+   <h5>Use this handy website to ensure you don't get caught in the rain on your travels</h5>
+   <h6>Search for a city below!</h6>
+   </div>
+</div>
+
+<!--search form-->
+<div class="search-container">
+<form class="search-form" action="action_page.php">
+  <input type="text" placeholder="Type your city here.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<!--Recent searches-->
+
+<div class="recent-searches">
+  <h2>Recent Searches</h2>
+  <li>Birmingham</li>
+  <li>Hong Kong</li>
+  <li>Leeds</li>
+</div>
+</div>
+
+<div class="current-weather-card">
+  <div class = "info-titles">
+  <h2>London</h2>
+  <img src="./Assets/Images/favicon.png" alt="icon of current weather">
+  <h4>Tuesday 14th April</h4>
+  </div>
+
+  <table class="info-table">
+
+    <tr>
+    <td>Temperature</td>
+    <td>9degrees</td>
+  </tr>
+  <tr>
+    <td>Wind Speed</td>
+    <td>8mph</td>
+  </tr>
+  <tr>
+    <td>Humidity</td>
+    <td>20%</td>
+  </tr>
+  <tr>
+    <td>UV Index</td>
+    <td>1</td>
+  </tr>
+
+  </table>
+
+</div>
+
+
+
+  </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./Assets/JS/script.js"></script>
+  </body>
+</html>
