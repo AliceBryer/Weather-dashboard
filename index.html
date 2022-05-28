@@ -21,10 +21,11 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&family=Varela+Round&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&family=Rubik+Microbe&family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./Assets/Images/favicon.png">
     <link rel="stylesheet" href="./Assets/CSS/styles.css" />
   </head>
@@ -38,7 +39,7 @@
         target="_blank"
         ><i class="fa-solid fa-house-chimney myIcons"></i>Airbnb</a
       >
-      <a href="https://www.tripadvisor.co.uk/" target="_blank"><i class="fa-solid fa-hotel myIcons"></i>Trip Advisor</a>
+      <a href="https://www.tripadvisor.co.uk/" target="_blank"><i class="fa-solid fa-suitcase myIcons"></i>Trip Advisor</a>
       <a href="https://www.google.com/maps" target="_blank"><i class="fa-solid fa-map-location-dot myIcons"></i>Google Maps</a>
       <a href="https://www.enterprise.co.uk/en/home.html" target="_blank"><i class="fa-solid fa-car myIcons"></i>Car Hire</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -74,9 +75,9 @@
 
 <!--current weather card-->
 <div class="current-weather-card">
-  <div class = "info-titles">
+  <div class = "info-titles" id="current-weather-titles">
   <h2>London</h2>
-  <img src="./Assets/Images/favicon.png" alt="icon of current weather">
+  <img src="./Assets/Images/favicon.png" alt="icon of current weather for the chosen city">
   <h4>Tuesday 14th April</h4>
   </div>
 
@@ -104,9 +105,12 @@
 </div>
 
 <!--future weather cards x5-->
+<h1>5-Day Forecast: </h1>
+
+<section class="future-weather-container">
 <div class="future-weather-card">
-  <div class = "info-titles">
-  <img src="./Assets/Images/favicon.png" alt="icon of current weather">
+  <div class = "info-titles" id="card-one">
+  <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
   <h4>Tuesday 14th April</h4>
   </div>
 
@@ -134,9 +138,9 @@
 </div>
 
 <div class="future-weather-card">
-  <div class = "info-titles">
+  <div class = "info-titles" id="card-two"> 
  
-  <img src="./Assets/Images/favicon.png" alt="icon of current weather">
+  <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
   <h4>Tuesday 14th April</h4>
   </div>
 
@@ -164,9 +168,9 @@
 </div>
 
 <div class="future-weather-card">
-  <div class = "info-titles">
+  <div class = "info-titles" id="card-three">
  
-  <img src="./Assets/Images/favicon.png" alt="icon of current weather">
+  <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
   <h4>Tuesday 14th April</h4>
   </div>
 
@@ -194,9 +198,9 @@
 </div>
 
 <div class="future-weather-card">
-  <div class = "info-titles">
+  <div class = "info-titles" id="card-four">
   
-  <img src="./Assets/Images/favicon.png" alt="icon of current weather">
+  <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
   <h4>Tuesday 14th April</h4>
   </div>
 
@@ -224,9 +228,9 @@
 </div>
 
 <div class="future-weather-card">
-  <div class = "info-titles">
-  <img src="./Assets/Images/favicon.png" alt="icon of current weather">
-  <h4>Tuesday 14th April</h4>
+  <div class = "info-titles"id="card-five">
+  <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
+  <h4>Wednesday 14th April</h4>
   </div>
 
   <table class="info-table">
@@ -251,10 +255,15 @@
   </table>
 
 </div>
+</section>
+</main>
+
+  <!--Footer-->
+
+  <footer class="page-footer">
+<p>Webpage created by Alice Bryer for University of Birmingham bootcamp 2022. </p>
 
 
-
-  </main>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"

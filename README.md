@@ -30,7 +30,7 @@ Uses localStorage to store persistent data.
 
 API link : https://openweathermap.org/api/one-call-api
 Key limit: 1000 calls per day
-API Key: bc6115c6531021896970ddc9c0028e1c
+
 
 Libraries used:
 Bootstrap

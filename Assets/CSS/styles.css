@@ -2,16 +2,18 @@
   --charcoal: #264653ff;
   --green: rgb(20, 221, 198);
   --dark-green: rgb(14, 116, 45);
-  --yellow: #e9c46aff;
+  --yellow: rgb(210, 184, 37);
   --orange: #f4a261ff;
   --dark-orange: rgb(222, 86, 52);
 }
 
 
+
 body {
-    background-color: rgba(226, 216, 216, 0.901);
+    background-color: rgba(193, 182, 182, 0.901);
     font-family: "Roboto Flex", sans-serif;
     font-family: "Varela Round", sans-serif;
+ 
 }
 
 main {
@@ -69,6 +71,12 @@ main {
       border-bottom:0.3rem solid var(--dark-orange);
 }
 
+.text-div h2 {
+    font-family: 'Galada';
+    font-size: 50px;
+    color:var(--yellow)
+}
+
 /* search form styling */
 
 .search-form {
@@ -84,13 +92,14 @@ main {
 .search-container {
     flex-direction: column;
     position:relative;
-    }
+}
 
 .recent-searches {
     margin:0.8rem;
     padding:0.4rem;
     border:solid 0.2rem var(--charcoal);
     display:inline-block;
+    height:400px;
     position:absolute;
     top:65px;
     left:2px;
@@ -100,15 +109,15 @@ main {
     text-decoration: underline;
 }
 
-/* weather card styling */
+/* current weather card styling */
 
 .current-weather-card {
-  
+    position:absolute;
     justify-items: center;
     text-align: center;
     box-shadow: 2px 5px 8px #888888;
     padding:1.5rem;
-    color:var(--dark-orange);
+    color:var(--charcoal);
     display:inline-block
 }
 
@@ -117,9 +126,12 @@ main {
     font-style:italic ;
 }
 
+#current-weather-titles {
+    border:3px dashed var(--charcoal)
+}
+
 .info-titles {
-    border:0.3rem dashed var(--dark-green);
-    padding:0.5rem
+  padding:0.7rem
 }
 
 .info-table {
@@ -136,9 +148,9 @@ table, th, td {
       padding:8px;
   }
 
+  /* future card styling */
 
-  .future-weather-card {
-  
+.future-weather-card {
     justify-items: center;
     text-align: center;
     box-shadow: 2px 5px 8px #888888;
@@ -146,6 +158,60 @@ table, th, td {
     color:var(--dark-orange);
     display:inline-block
 }
+
+.future-weather-card img {
+    margin-top:1rem
+}
+
+.future-weather-container{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    margin-bottom:3rem;
+}
+
+#card-one {
+    border:dashed 3px var(--dark-green);
+    color:var(--dark-green);
+}
+
+#card-two {
+    border:dashed 3px var(--green);
+    color:var(--green)
+}
+
+#card-three {
+    border:dashed 3px var(--dark-orange);
+    color:var(--dark-orange);
+}
+
+#card-four {
+    border:dashed 3px var(--orange);
+    color:var(--orange)
+}
+
+#card-five {
+    border:dashed 3px var(--yellow);
+    color:var(--yellow)
+}
+
+
+
+
+
+/* footer styling */
+
+.page-footer {
+    background-color:var(--charcoal);
+    border-top:0.3rem solid var(--dark-orange);
+    height:80px;
+    color:var(--orange);
+    text-align: center;
+    font-size: 20px;
+    align-items: center;
+    
+}
+
 
 /* media queries */
 
