@@ -12,7 +12,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link
+     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./Assets/CSS/styles.css" />
   </head>
   <body>
+
     <!--Navbar-->
 
     <div class="topnav" id="myTopnav">
@@ -42,7 +43,7 @@
       <a href="https://www.tripadvisor.co.uk/" target="_blank"><i class="fa-solid fa-suitcase myIcons"></i>Trip Advisor</a>
       <a href="https://www.google.com/maps" target="_blank"><i class="fa-solid fa-map-location-dot myIcons"></i>Google Maps</a>
       <a href="https://www.enterprise.co.uk/en/home.html" target="_blank"><i class="fa-solid fa-car myIcons"></i>Car Hire</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
         <i class="fa fa-bars"></i>
     </div>
 
@@ -105,7 +106,9 @@
 </div>
 
 <!--future weather cards x5-->
-<h1>5-Day Forecast: </h1>
+<div class="title-container">
+<h1 id="future-title">5-Day Forecast: </h1>
+</div>
 
 <section class="future-weather-container">
 <div class="future-weather-card">
