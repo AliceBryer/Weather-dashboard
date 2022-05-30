@@ -8,3 +8,9 @@ function myFunction() {
       x.className = "topnav";
     }
   }
+
+  // time & date in Navbar
+var dt = new Date().format;
+var formatedDt = moment(dt).format("DD-MM-YYYY HH:mm");
+document.getElementById('date-time').innerHTML=formatedDt;
+
