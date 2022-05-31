@@ -116,7 +116,7 @@ main {
     display:inline-block;
     height:400px;
     position:absolute;
-    top:65px;
+    top:400px;
     left:2px;
     background-color: aliceblue;
     box-shadow: 2px 5px 8px #888888;
@@ -124,6 +124,14 @@ main {
 
 .recent-searches h2 {
     text-decoration: underline;
+}
+
+#clear-history {
+  margin:0.8rem;
+  display:inline-block;
+  position:absolute;
+  top:320px;
+  left:70px;
 }
 
 /* current weather card styling */

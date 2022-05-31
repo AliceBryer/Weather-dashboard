@@ -61,18 +61,29 @@
 
 <!--search form-->
 <div class="search-container">
-<form class="search-form" action="action_page.php">
-  <input type="text" placeholder="Type your city here.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
+<form class="search-form">
+  <input id="cityInput" type="text" placeholder="Type your city here.." name="search">
+  <button id="search-button" onclick="store()" type="submit"><i class="fa fa-search"></i></button>
 </form>
+</div>
+
+     <!--clear searches button-->
+  <div>
+     <button
+     id="clear-history"
+     button
+     class="button is-warning"
+   >
+     Clear search history
+   </button>
+ </div>
 
 <!--Recent searches-->
 
 <div class="recent-searches">
   <h2>Recent Searches</h2>
-  <li>Birmingham</li>
-  <li>Hong Kong</li>
-  <li>Leeds</li>
+  <ul id="search-list">
+  </ul>
 </div>
 </div>
 
@@ -134,11 +145,6 @@
     <td>Humidity</td>
     <td>20%</td>
   </tr>
-  <tr>
-    <td>UV Index</td>
-    <td>1</td>
-  </tr>
-
   </table>
 
 </div>
@@ -164,12 +170,7 @@
     <td>Humidity</td>
     <td>20%</td>
   </tr>
-  <tr>
-    <td>UV Index</td>
-    <td>1</td>
-  </tr>
-
-  </table>
+</table>
 
 </div>
 
@@ -194,12 +195,7 @@
     <td>Humidity</td>
     <td>20%</td>
   </tr>
-  <tr>
-    <td>UV Index</td>
-    <td>1</td>
-  </tr>
-
-  </table>
+</table>
 
 </div>
 
@@ -224,12 +220,7 @@
     <td>Humidity</td>
     <td>20%</td>
   </tr>
-  <tr>
-    <td>UV Index</td>
-    <td>1</td>
-  </tr>
-
-  </table>
+</table>
 
 </div>
 
@@ -253,12 +244,7 @@
     <td>Humidity</td>
     <td>20%</td>
   </tr>
-  <tr>
-    <td>UV Index</td>
-    <td>1</td>
-  </tr>
-
-  </table>
+</table>
 
 </div>
 </section>

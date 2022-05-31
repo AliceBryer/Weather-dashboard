@@ -38,7 +38,7 @@ FontAwesome
 GoogleFonts
 Moment.JS
 
-Color Palete from : https://coolors.co/palettes/popular
+Color Palete sourced from : https://coolors.co/palettes/popular
 
 <li class="nav-item">
               <a class="nav-link" href="https://www.tripadvisor.co.uk/"

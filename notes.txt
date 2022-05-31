@@ -1,0 +1,93 @@
+Notes from the brief & general Notes
+
+Search form:
+-search by city
+-search button
+-clear searches
+
+
+Local storage:
+-Recent cities from the search input - add to LS & display on page
+-load on HTML on page refresh (persistent data)
+
+Search History:
+-can click on a recent search & re-render the data
+
+
+Current Weather:
+-city name
+-date (convert to format using momentJS)
+-icon (code then into a function)
+-temperature (degrees celsius)
+-humidity (%)
+-windspeed (m/s)
+-UV index 
+ -color coded by favorable,moderate, severe 
+
+URL to search by city for current weather
+
+https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857
+
+parameters are city name & apikey
+
+Future Weather (5-day forecast):
+-date (convert to format using momentJS)
+-icon (code then into a function)
+-temperature (degrees celsius)
+-humidity (%)
+-windspeed (m/s)
+
+https://api.openweathermap.org/data/3.0/onecall?lat=51.5085&lon=-0.1257&units=metric&exclude=current,minutely,hourly&appid=d19384ecb2806bdadfc99c30aaf05857
+
+Icon src URL = 
+http://openweathermap.org/img/w/04d.png
+
+
+
+
+
+
+{
+    "coord": {
+        "lon": -0.1257,
+        "lat": 51.5085
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 13.22,
+        "feels_like": 12.32,
+        "temp_min": 10.29,
+        "temp_max": 15.2,
+        "pressure": 1013,
+        "humidity": 66
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 4.63,
+        "deg": 200
+    },
+    "clouds": {
+        "all": 20
+    },
+    "dt": 1653929636,
+    "sys": {
+        "type": 2,
+        "id": 2019646,
+        "country": "GB",
+        "sunrise": 1653882657,
+        "sunset": 1653941126
+    },
+    "timezone": 3600,
+    "id": 2643743,
+    "name": "London",
+    "cod": 200
+}
+
