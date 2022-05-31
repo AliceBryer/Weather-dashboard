@@ -52,6 +52,8 @@ function loadCities() {
   }
 }
 
+loadCities ();
+
 // clear history of recent searches
 
 var clearHistoryBtn = document.getElementById("clear-history");
@@ -66,7 +68,7 @@ clearHistoryBtn.onclick = function () {
 
 const urlOne = 'https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857'
 
-async function getCurrentData () {
+async function getCityInfo () {
   const response = await fetch(urlOne);
   const data = await response.json();
   console.log (data);
@@ -78,11 +80,22 @@ async function getCurrentData () {
   console.log(cityName);
 }
 
-getCurrentData();
+getCityInfo();
 
 // fetch request to use longitude & latitude to get current & future weather 
 
+const urlTwo = 'https://api.openweathermap.org/data/2.5/onecall?lat=51.5085&lon=-0.1257&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c'
 
+async function getWeatherData () {
+  const response = await fetch(urlTwo);
+  const data = await response.json();
+  console.log (data);
+  const requiredData = data.daily.slice(0,6);
+  console.log(requiredData);
+  ;
+ };
+
+ getWeatherData ();
 
 
 
