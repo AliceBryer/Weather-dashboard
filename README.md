@@ -32,28 +32,13 @@ API link : https://openweathermap.org/api/one-call-api
 Key limit: 1000 calls per day
 
 
-Libraries used:
+Technologies / Libraries used:
+HTML
+CSS
+JavaScript
 Bootstrap
 FontAwesome
 GoogleFonts
 Moment.JS
 
 Color Palete sourced from : https://coolors.co/palettes/popular
-
-<li class="nav-item">
-              <a class="nav-link" href="https://www.tripadvisor.co.uk/"
-                >Trip Advisor</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://www.airbnb.co.uk/?c=.pi0.pk179260836_12837552276&ghost=true&gclid=CjwKCAjwp7eUBhBeEiwAZbHwkdy98RxdwhuqXUaAZqYQAEa4D7FrzULsaxj9786baW52jgYQkZwiMRoCVOgQAvD_BwE"
-                >Airbnb</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.google.com/maps"
-                >Google Maps</a
-              >
-            </li>

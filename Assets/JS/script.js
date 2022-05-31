@@ -9,10 +9,10 @@
 //     }
 //   }
 
-//   // time & date in Navbar
-// var dt = new Date().format;
-// var formatedDt = moment(dt).format("DD-MM-YYYY HH:mm");
-// document.getElementById('date-time').innerHTML=formatedDt;
+  // time & date in Navbar
+var dt = new Date().format;
+var formatedDt = moment(dt).format("DD-MM-YYYY HH:mm");
+document.getElementById('date-time').innerHTML=formatedDt;
 
 
 // adding search to local storage 
@@ -66,7 +66,7 @@ clearHistoryBtn.onclick = function () {
 
 // fetch request to get longitude, latitude & city name 
 
-const urlOne = 'https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857'
+const urlOne = 'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857'
 
 async function getCityInfo () {
   const response = await fetch(urlOne);
@@ -75,12 +75,35 @@ async function getCityInfo () {
   const longitude = data.coord.lon;
   const latitude = data.coord.lat;
   const cityName = data.name;
-  console.log(longitude);
-  console.log(latitude);
   console.log(cityName);
+  
+  // taking the unixTime value & converting it 
+  const unixTimestamp = data.dt;
+  const milliseconds = (unixTimestamp * 1000);
+  const dateObject = new Date(milliseconds);
+  const humanDateFormat = dateObject.toLocaleString ();
+  console.log (humanDateFormat)
+
+
+
+
+
+  // appending cityName onto HTML
+  const title = document.getElementById ("current-weather-titles")
+  const enterCityName = document.createElement("h2");
+  enterCityName.appendChild(document.createTextNode(cityName));
+  title.appendChild(enterCityName);
 }
+ 
+ 
 
 getCityInfo();
+
+// function appendCityName (cityName) {
+//   const cityTitle = document.getElementById("current-weather-titles");
+//   const titleLocation = document.createElement("h2");
+//   titleLocation.innerHTML = cityTitle;
+// }
 
 // fetch request to use longitude & latitude to get current & future weather 
 
