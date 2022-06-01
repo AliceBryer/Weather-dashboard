@@ -42,3 +42,11 @@ GoogleFonts
 Moment.JS
 
 Color Palete sourced from : https://coolors.co/palettes/popular
+
+Challenges faced during creation:
+
+Features planned to implement in the future: 
+
+Screenshot:
+
+Deployed Link: 
