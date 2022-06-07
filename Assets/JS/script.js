@@ -66,7 +66,7 @@ clearHistoryBtn.onclick = function () {
 
 // fetch request to get longitude, latitude & city name 
 
-var emptyArray = [];
+// var emptyArray = [];
 
 const urlOne = 'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857'
 
@@ -74,18 +74,20 @@ async function getCityInfo (userInput) {
   const response = await fetch(urlOne);
   const data = await response.json();
   console.log (data);
-  const longitude = data.coord.lon;
   const latitude = data.coord.lat;
-  emptyArray.push(longitude);
-  emptyArray.push(latitude);
+  // emptyArray.push(latitude);
+  const longitude = data.coord.lon;
+  // emptyArray.push(longitude);
   const cityName = data.name;
   const windSpeed = data.wind.speed + ' m/s';
   const temperature = data.main.temp + ' degrees celcius';
   const humidity = data.main.humidity + ' %';
-  console.log(cityName);
-  console.log(windSpeed);
-  console.log(temperature)
-  console.log(humidity)
+  
+  // console.log(cityName);
+  // console.log(windSpeed);
+  // console.log(temperature)
+  // console.log(humidity)
+  
   
   
   // taking the unixTime value & converting it 
@@ -93,7 +95,7 @@ async function getCityInfo (userInput) {
   const milliseconds = (unixTimestamp * 1000);
   const dateObject = new Date(milliseconds);
   const humanDateFormat = dateObject.toLocaleString ();
-  console.log (humanDateFormat)
+  // console.log (humanDateFormat)
 
   // appending cityName onto HTML (current weather)
   const title = document.getElementById ("current-weather-titles")
@@ -119,17 +121,44 @@ const temperatureRow = document.getElementById("current-temp")
 const enterTemperature = document.createElement("td");
 enterTemperature.appendChild(document.createTextNode(temperature));
 temperatureRow.appendChild(enterTemperature);
+
+constructurl();
+return data
 };
+
+
+
  
- getCityInfo();
- console.log(emptyArray);
+getCityInfo();
 
 
 
 
-// fetch request to use longitude & latitude to get current & future weather 
+//  console.log(emptyArray);
 
-// const urlTwo = 'https://api.openweathermap.org/data/2.5/onecall?lat= + 'emptyArray[0]' &lon=-0.1257&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c'
+//  var [lat, long] = emptyArray;
+
+//  console.log(lat);
+//  console.log(long);
+
+
+
+
+function constructurl (getCityInfo) {
+  var longitude = getCityInfo();
+  var latitude = getCityInfo();
+  console.log(longitude);
+  // const urlTwo = 'https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c';
+  // console.log(urlTwo)
+}
+
+
+
+// // fetch request to use longitude & latitude to get current & future weather 
+
+
+
+//  const urlTwo = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c';
 
 // async function getWeatherData () {
 //   const response = await fetch(urlTwo);

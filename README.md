@@ -1,16 +1,13 @@
 # Weather-dashboard
 
-Week 6 University of birmingham homework
-
 Project brief: Use the OpenWeather One Call API to retrieve weather data for
 cities.
 
-You will use localStorage to store any persistent data.
-
-User Story
+## User Story
 AS A traveler I WANT to see the weather outlook for multiple cities SO THAT I can plan a trip accordingly
 
-Acceptance Criteria
+## Acceptance Criteria
+```
 GIVEN a weather dashboard with form inputs WHEN
 I search for a city THEN I am presented with current and future conditions for
 that city and that city is added to the search history WHEN I view current
@@ -22,17 +19,18 @@ moderate, or severe WHEN I view future weather conditions for that city THEN I
 am presented with a 5-day forecast that displays the date, an icon
 representation of weather conditions, the temperature, the wind speed, and the
 humidity WHEN I click on a city in the search history THEN I am again presented
-with current and future conditions for that city
+with current and future conditions for that city.
+```
 
-Technical Acceptance Criteria:
+## Technical Acceptance Criteria:
 Uses the OpenWeather API to retrieve weather data.
 Uses localStorage to store persistent data.
 
-API link : https://openweathermap.org/api/one-call-api
-Key limit: 1000 calls per day
+## API link : 
+-- https://openweathermap.org/api/one-call-api
+-- Key limit: 1000 calls per day
 
-
-Technologies / Libraries used:
+## Technologies / Libraries used:
 HTML
 CSS
 JavaScript
@@ -43,10 +41,15 @@ Moment.JS
 
 Color Palete sourced from : https://coolors.co/palettes/popular
 
-Challenges faced during creation:
+## Challenges faced during creation
 
-Features planned to implement in the future: 
 
-Screenshot:
+## Future additions
 
-Deployed Link: 
+## Screenshot: 
+![Alt text](./Assets/Images/Screenshot%20of%20application.jpg "Screenshot of our website")
+
+![Alt text](./Assets/Images/Screenshot%20of%20application2.jpg"Screenshot of our website")
+
+## Deployed Link: 
+Not yet deployed
