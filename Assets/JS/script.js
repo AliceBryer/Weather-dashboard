@@ -15,6 +15,9 @@ var formatedDt = moment(dt).format("DD-MM-YYYY HH:mm");
 document.getElementById('date-time').innerHTML=formatedDt;
 
 
+
+
+
 // adding search to local storage 
 
 function store() {
@@ -31,8 +34,11 @@ function store() {
 
   searchedCities.push(cityInput.value);
   localStorage.setItem("cityInput", JSON.stringify(searchedCities));
+  
   loadCities();
+  
 }
+
 
 // appending to recent searches container 
 
@@ -49,10 +55,12 @@ function loadCities() {
     const entry = document.createElement("li");
     entry.appendChild(document.createTextNode(newData));
     list.appendChild(entry);
-  }
+
+
+ }
 }
 
-loadCities ();
+
 
 // clear history of recent searches
 
@@ -66,23 +74,23 @@ clearHistoryBtn.onclick = function () {
 
 // fetch request to get longitude, latitude & city name 
 
-// var emptyArray = [];
 
-const urlOne = 'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857'
 
-async function getCityInfo (userInput) {
+const urlOne = 'https://api.openweathermap.org/data/2.5/weather?q=Walsall&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857'
+
+async function getCityInfo () {
+
   const response = await fetch(urlOne);
   const data = await response.json();
   console.log (data);
   const latitude = data.coord.lat;
-  // emptyArray.push(latitude);
   const longitude = data.coord.lon;
-  // emptyArray.push(longitude);
   const cityName = data.name;
   const windSpeed = data.wind.speed + ' m/s';
-  const temperature = data.main.temp + ' degrees celcius';
+  const temperature = data.main.temp + ' &deg;C';
   const humidity = data.main.humidity + ' %';
   
+  constructurl(latitude, longitude);
   // console.log(cityName);
   // console.log(windSpeed);
   // console.log(temperature)
@@ -106,72 +114,45 @@ async function getCityInfo (userInput) {
   // appending windSpeed onto HTML (current weather)
   const windSpeedRow = document.getElementById ("wind-speed-row")
   const enterwindSpeed = document.createElement("td");
-  enterwindSpeed.appendChild(document.createTextNode(windSpeed));
-  windSpeedRow.appendChild(enterwindSpeed);
+  enterwindSpeed.append(document.createTextNode(windSpeed));
+  windSpeedRow.append(enterwindSpeed);
 
   // appending the humidty onto HTML (current weather)
   const humidityRow = document.getElementById ("humidity-row")
   const enterHumidity = document.createElement("td");
-  enterHumidity.appendChild(document.createTextNode(humidity));
-  humidityRow.appendChild(enterHumidity);
+  enterHumidity.append(document.createTextNode(humidity));
+  humidityRow.append(enterHumidity);
 
 
 // appending the temperature onto HTML (current weather)
 const temperatureRow = document.getElementById("current-temp")
 const enterTemperature = document.createElement("td");
-enterTemperature.appendChild(document.createTextNode(temperature));
-temperatureRow.appendChild(enterTemperature);
+enterTemperature.append(document.createTextNode(temperature));
+temperatureRow.append(enterTemperature);
 
-constructurl();
+
 return data
 };
-
-
-
- 
 getCityInfo();
 
 
 
 
-//  console.log(emptyArray);
 
-//  var [lat, long] = emptyArray;
+function constructurl (latitude, longitude) {
+ const urlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c`;
+ getWeatherData(urlTwo);
+};
+// fetch request to use longitude & latitude to get current & future weather 
 
-//  console.log(lat);
-//  console.log(long);
-
-
-
-
-function constructurl (getCityInfo) {
-  var longitude = getCityInfo();
-  var latitude = getCityInfo();
-  console.log(longitude);
-  // const urlTwo = 'https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c';
-  // console.log(urlTwo)
-}
-
-
-
-// // fetch request to use longitude & latitude to get current & future weather 
-
-
-
-//  const urlTwo = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c';
-
-// async function getWeatherData () {
-//   const response = await fetch(urlTwo);
-//   const data = await response.json();
-//   console.log (data);
-//   const requiredData = data.daily.slice(0,6);
-//   console.log(requiredData);
+ async function getWeatherData (urlTwo) {
+  const response = await fetch(urlTwo);
+  const data = await response.json();
+  console.log (data);
+  const requiredData = data.daily.slice(0,6);
+  console.log(requiredData);
   
-//  };
-
-//  getWeatherData ();
-
-
+ };
 
 
 
