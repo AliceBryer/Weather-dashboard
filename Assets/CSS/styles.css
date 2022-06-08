@@ -56,7 +56,7 @@ main {
 
 
 .myIcons {
-    margin-right: 0.5rem;
+    margin-right: 0.6rem;
 }
 
 
@@ -65,8 +65,10 @@ main {
   }
 
 #date-time {
-  color:var(--yellow);
+  color:var(--green);
   font-size: 2rem;
+  float:right;
+  margin-right: 2rem;
   
 }
 

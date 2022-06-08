@@ -1,50 +1,40 @@
-// hamburger function
-
-// function myFunction() {
-//     var x = document.getElementById("myTopnav");
-//     if (x.className === "topnav") {
-//       x.className += " responsive";
-//     } else {
-//       x.className = "topnav";
-//     }
-//   }
-
-  // time & date in Navbar
+// time & date in Navbar
 var dt = new Date().format;
 var formatedDt = moment(dt).format("DD-MM-YYYY HH:mm");
 document.getElementById('date-time').innerHTML=formatedDt;
-
-
-
 
 
 // adding search to local storage 
 
 function store() {
   var cityInput = document.getElementById("cityInput");
-
   let searchedCitiesString = localStorage.getItem("cityInput");
-  let searchedCities;
-
+  
   if (searchedCitiesString === null) {
     searchedCities = [];
   } else {
     searchedCities = JSON.parse(searchedCitiesString);
   }
 
+  
+
   searchedCities.push(cityInput.value);
   localStorage.setItem("cityInput", JSON.stringify(searchedCities));
-  
-  loadCities();
-  
-}
 
+  loadCities();
+}
 
 // appending to recent searches container 
 
 function loadCities() {
   var storedCity = localStorage.getItem("cityInput");
   var storedCitiesParse = JSON.parse(storedCity);
+  console.log(storedCitiesParse)
+
+  const ChosenCity = storedCitiesParse[storedCitiesParse.length -1];
+  console.log(ChosenCity)
+
+  createurl(ChosenCity)
 
   const list = document.getElementById("search-list");
 
@@ -55,10 +45,10 @@ function loadCities() {
     const entry = document.createElement("li");
     entry.appendChild(document.createTextNode(newData));
     list.appendChild(entry);
-
-
- }
+  }
 }
+
+loadCities();
 
 
 
@@ -72,13 +62,16 @@ clearHistoryBtn.onclick = function () {
     list.innerHTML = "";
   }
 
-// fetch request to get longitude, latitude & city name 
+// creating url for fetch request based on the users search
 
+function createurl (ChosenCity) {
+  const urlOne = `https://api.openweathermap.org/data/2.5/weather?q=${ChosenCity}&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857`
+ getCityInfo(urlOne)
+  };
 
+// fetch request to get longitude, latitude & correct city name etc
 
-const urlOne = 'https://api.openweathermap.org/data/2.5/weather?q=Walsall&units=metric&appid=d19384ecb2806bdadfc99c30aaf05857'
-
-async function getCityInfo () {
+async function getCityInfo (urlOne) {
 
   const response = await fetch(urlOne);
   const data = await response.json();
@@ -91,33 +84,28 @@ async function getCityInfo () {
   const humidity = data.main.humidity + ' %';
   
   constructurl(latitude, longitude);
-  // console.log(cityName);
-  // console.log(windSpeed);
-  // console.log(temperature)
-  // console.log(humidity)
-  
-  
-  
-  // taking the unixTime value & converting it 
-  const unixTimestamp = data.dt;
-  const milliseconds = (unixTimestamp * 1000);
-  const dateObject = new Date(milliseconds);
-  const humanDateFormat = dateObject.toLocaleString ();
-  // console.log (humanDateFormat)
 
-  // appending cityName onto HTML (current weather)
+  
+// //  // taking the unixTime value & converting it 
+//   const unixTimestamp = data.dt;
+//   const milliseconds = (unixTimestamp * 1000);
+//   const dateObject = new Date(milliseconds);
+//   const humanDateFormat = dateObject.toLocaleString ();
+//   // console.log (humanDateFormat)
+
+// appending cityName onto HTML (current weather)
   const title = document.getElementById ("current-weather-titles")
   const enterCityName = document.createElement("h2");
   enterCityName.appendChild(document.createTextNode(cityName));
   title.appendChild(enterCityName);
 
-  // appending windSpeed onto HTML (current weather)
+// appending windSpeed onto HTML (current weather)
   const windSpeedRow = document.getElementById ("wind-speed-row")
   const enterwindSpeed = document.createElement("td");
   enterwindSpeed.append(document.createTextNode(windSpeed));
   windSpeedRow.append(enterwindSpeed);
 
-  // appending the humidty onto HTML (current weather)
+// appending the humidity onto HTML (current weather)
   const humidityRow = document.getElementById ("humidity-row")
   const enterHumidity = document.createElement("td");
   enterHumidity.append(document.createTextNode(humidity));
@@ -130,7 +118,6 @@ const enterTemperature = document.createElement("td");
 enterTemperature.append(document.createTextNode(temperature));
 temperatureRow.append(enterTemperature);
 
-
 return data
 };
 getCityInfo();
@@ -141,18 +128,20 @@ getCityInfo();
 
 function constructurl (latitude, longitude) {
  const urlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c`;
- getWeatherData(urlTwo);
-};
-// fetch request to use longitude & latitude to get current & future weather 
+console.log(urlTwo)
 
- async function getWeatherData (urlTwo) {
-  const response = await fetch(urlTwo);
-  const data = await response.json();
-  console.log (data);
-  const requiredData = data.daily.slice(0,6);
-  console.log(requiredData);
+// getWeatherData(urlTwo);
+};
+// // fetch request to use longitude & latitude to get current & future weather 
+
+//  async function getWeatherData (urlTwo) {
+//   const response = await fetch(urlTwo);
+//   const data = await response.json();
+//   console.log (data);
+//   const requiredData = data.daily.slice(0,6);
+//   console.log(requiredData);
   
- };
+//  };
 
 
 
