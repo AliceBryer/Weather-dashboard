@@ -79,29 +79,24 @@ async function getCityInfo (urlOne) {
   console.log (data);
   const latitude = data.coord.lat;
   const longitude = data.coord.lon;
-  // const cityName = data.name;
-  // const windSpeed = data.wind.speed + ' m/s';
-  // const temperature = data.main.temp + ' °C';
-  // const humidity = data.main.humidity + ' %';
-  // // const icon = data.weather.item.icon;
-  // // console.log(icon);
   
   constructurl(latitude, longitude);
 
   
-// //  // taking the unixTime value & converting it 
-//   const unixTimestamp = data.dt;
-//   const milliseconds = (unixTimestamp * 1000);
-//   const dateObject = new Date(milliseconds);
-// //   const humanDateFormat = dateObject.toLocaleString ();
-// //   // console.log (humanDateFormat)
+// taking the unixTime value & converting it 
+  const unixTimestamp = data.dt;
+  const milliseconds = (unixTimestamp * 1000);
+  const dateObject = new Date(milliseconds);
+  const formatedDt = moment(dateObject).format("dddd, MMMM Do YYYY");
+  
 
-// // appending cityName onto HTML (current weather)
+
+// appending cityName onto HTML (current weather)
 
 
 const currentWeatherCard = `<div class="current-weather-card">
   <div class = "info-titles" id="current-weather-titles">
-  <h2>${data.dt}</h2>
+  <h2>${formatedDt}</h2>
   <img src="./Assets/Images/favicon.png" alt="icon of current weather for the chosen city">
   <h4>${data.name}</h4>
   </div>
@@ -160,6 +155,12 @@ getFutureWeatherData(urlTwo);
   const requiredData = data.daily.slice(1,6);
   console.log(requiredData);
 
+  const unixTimestamp = requiredData.dt;
+  console.log(unixTimestamp)
+  const milliseconds = (unixTimestamp * 1000);
+  const dateObject = new Date(milliseconds);
+  const formatedDt = moment(dateObject).format("dddd, MMMM Do YYYY");
+
   requiredData.forEach(function (day){
 
 
@@ -167,7 +168,7 @@ const futureWeatherCard =
 `<div class="future-weather-card">
     <div class = "info-titles" id="card-one">
     <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
-    <h4>${day.dt}</h4>
+    <h4>${data.dt}</h4>
     </div>
   
     <table class="info-table">
