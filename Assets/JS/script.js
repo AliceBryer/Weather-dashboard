@@ -80,8 +80,10 @@ async function getCityInfo (urlOne) {
   const longitude = data.coord.lon;
   const cityName = data.name;
   const windSpeed = data.wind.speed + ' m/s';
-  const temperature = data.main.temp + ' &deg; C';
+  const temperature = data.main.temp + ' °C';
   const humidity = data.main.humidity + ' %';
+  // const icon = data.weather.item.icon;
+  // console.log(icon);
   
   constructurl(latitude, longitude);
 
@@ -118,6 +120,8 @@ const enterTemperature = document.createElement("td");
 enterTemperature.append(document.createTextNode(temperature));
 temperatureRow.append(enterTemperature);
 
+// appending the icon onto HTML (current weather)
+
 return data
 };
 getCityInfo();
@@ -145,38 +149,34 @@ getFutureWeatherData(urlTwo);
 
   requiredData.forEach(function (day){
 
-    // const temp = day.temp.day;
-    // const windspeed = day.wind_speed;
-    // const humidity = day.humidity;
-    // const uvi = day.uvi;
 
 const futureWeatherCard = 
 `<div class="future-weather-card">
     <div class = "info-titles" id="card-one">
     <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
-    <h4>Tuesday 14th April</h4>
+    <h4>${day.dt}</h4>
     </div>
   
     <table class="info-table">
   
       <tr>
       <td>Temperature</td>
-      <td></td>
+      <td>${day.temp.day} °C</td>
       
     </tr>
     <tr>
       <td>Wind Speed</td>
-      <td></td>
+      <td>${day.wind_speed} m/s </td>
      
     </tr>
     <tr>
       <td>Humidity</td>
-      <td></td>
+      <td>${day.humidity} %</td>
     
     </tr>
     <tr>
       <td class="UV-index">UV Index</td>
-      <td></td>
+      <td>${day.uvi}</td>
   </tr>
     </table>
   
