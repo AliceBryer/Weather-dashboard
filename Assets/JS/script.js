@@ -97,17 +97,13 @@ async function getCityInfo (urlOne) {
 // //   // console.log (humanDateFormat)
 
 // // appending cityName onto HTML (current weather)
-  // const title = document.getElementById ("current-weather-titles")
-  // const enterCityName = document.createElement("h2");
-  // enterCityName.appendChild(document.createTextNode(cityName));
-  // title.appendChild(enterCityName);
 
 
 const currentWeatherCard = `<div class="current-weather-card">
   <div class = "info-titles" id="current-weather-titles">
-  <h2></h2>
+  <h2>${data.dt}</h2>
   <img src="./Assets/Images/favicon.png" alt="icon of current weather for the chosen city">
-  <h4>${data.dt}</h4>
+  <h4>${data.name}</h4>
   </div>
 
   <table class="info-table">

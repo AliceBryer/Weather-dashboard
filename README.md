@@ -27,8 +27,8 @@ Uses the OpenWeather API to retrieve weather data.
 Uses localStorage to store persistent data.
 
 ## API link : 
--- https://openweathermap.org/api/one-call-api
--- Key limit: 1000 calls per day
+- https://openweathermap.org/api/one-call-api
+- Key limit: 1000 calls per day
 
 ## Technologies / Libraries used:
 HTML
@@ -41,10 +41,8 @@ Moment.JS
 
 Color Palete sourced from : https://coolors.co/palettes/popular
 
-## Challenges faced during creation
-
-
 ## Future additions
+I am still working on this project within my free time - I need to format the date & also the UV colors (as per the brief) as well as some focus on positioning & responsiveness too.
 
 ## Screenshot: 
 ![Alt text](./Assets/Images/Screenshot%20of%20application.jpg "Screenshot of our website")
@@ -52,4 +50,7 @@ Color Palete sourced from : https://coolors.co/palettes/popular
 ![Alt text](./Assets/Images/Screenshot%20of%20application2.jpg"Screenshot of our website")
 
 ## Deployed Link: 
-Not yet deployed
+https://alicebryer.github.io/Weather-dashboard/
+
+## Licence
+MIT
