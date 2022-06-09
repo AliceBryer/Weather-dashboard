@@ -70,6 +70,7 @@ function createurl (ChosenCity) {
   };
 
 // fetch request to get longitude, latitude & correct city name etc
+const currentContainer = $("#current-weather-container")
 
 async function getCityInfo (urlOne) {
 
@@ -78,12 +79,12 @@ async function getCityInfo (urlOne) {
   console.log (data);
   const latitude = data.coord.lat;
   const longitude = data.coord.lon;
-  const cityName = data.name;
-  const windSpeed = data.wind.speed + ' m/s';
-  const temperature = data.main.temp + ' °C';
-  const humidity = data.main.humidity + ' %';
-  // const icon = data.weather.item.icon;
-  // console.log(icon);
+  // const cityName = data.name;
+  // const windSpeed = data.wind.speed + ' m/s';
+  // const temperature = data.main.temp + ' °C';
+  // const humidity = data.main.humidity + ' %';
+  // // const icon = data.weather.item.icon;
+  // // console.log(icon);
   
   constructurl(latitude, longitude);
 
@@ -92,35 +93,51 @@ async function getCityInfo (urlOne) {
 //   const unixTimestamp = data.dt;
 //   const milliseconds = (unixTimestamp * 1000);
 //   const dateObject = new Date(milliseconds);
-//   const humanDateFormat = dateObject.toLocaleString ();
-//   // console.log (humanDateFormat)
+// //   const humanDateFormat = dateObject.toLocaleString ();
+// //   // console.log (humanDateFormat)
 
-// appending cityName onto HTML (current weather)
-  const title = document.getElementById ("current-weather-titles")
-  const enterCityName = document.createElement("h2");
-  enterCityName.appendChild(document.createTextNode(cityName));
-  title.appendChild(enterCityName);
-
-// appending windSpeed onto HTML (current weather)
-  const windSpeedRow = document.getElementById ("wind-speed-row")
-  const enterwindSpeed = document.createElement("td");
-  enterwindSpeed.append(document.createTextNode(windSpeed));
-  windSpeedRow.append(enterwindSpeed);
-
-// appending the humidity onto HTML (current weather)
-  const humidityRow = document.getElementById ("humidity-row")
-  const enterHumidity = document.createElement("td");
-  enterHumidity.append(document.createTextNode(humidity));
-  humidityRow.append(enterHumidity);
+// // appending cityName onto HTML (current weather)
+  // const title = document.getElementById ("current-weather-titles")
+  // const enterCityName = document.createElement("h2");
+  // enterCityName.appendChild(document.createTextNode(cityName));
+  // title.appendChild(enterCityName);
 
 
-// appending the temperature onto HTML (current weather)
-const temperatureRow = document.getElementById("current-temp")
-const enterTemperature = document.createElement("td");
-enterTemperature.append(document.createTextNode(temperature));
-temperatureRow.append(enterTemperature);
+const currentWeatherCard = `<div class="current-weather-card">
+  <div class = "info-titles" id="current-weather-titles">
+  <h2></h2>
+  <img src="./Assets/Images/favicon.png" alt="icon of current weather for the chosen city">
+  <h4>${data.dt}</h4>
+  </div>
 
-// appending the icon onto HTML (current weather)
+  <table class="info-table">
+
+    <tr id="current-temp">
+    <td>Temperature</td>
+    <td>${data.main.temp}°C</td>
+    
+  </tr>
+  <tr id="wind-speed-row">
+    <td>Wind Speed</td>
+    <td>${data.wind.speed} m/s</td>
+
+  </tr>
+  <tr id="humidity-row">
+    <td>Humidity</td>
+    <td>${data.main.humidity}%</td>
+
+  </tr>
+  <tr>
+    <td>UV Index</td>
+   <td class="UV-index"></td> 
+
+  </tr>
+
+  </table>
+
+ </div>`
+
+ currentContainer.append(currentWeatherCard);
 
 return data
 };
