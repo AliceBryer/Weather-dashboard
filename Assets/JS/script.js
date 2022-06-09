@@ -80,7 +80,7 @@ async function getCityInfo (urlOne) {
   const longitude = data.coord.lon;
   const cityName = data.name;
   const windSpeed = data.wind.speed + ' m/s';
-  const temperature = data.main.temp + ' &deg;C';
+  const temperature = data.main.temp + ' &deg; C';
   const humidity = data.main.humidity + ' %';
   
   constructurl(latitude, longitude);
@@ -128,58 +128,84 @@ getCityInfo();
 
 function constructurl (latitude, longitude) {
  const urlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly&units=metric&appid=bc6115c6531021896970ddc9c0028e1c`;
-console.log(urlTwo)
-
-// getWeatherData(urlTwo);
+getFutureWeatherData(urlTwo);
 };
-// // fetch request to use longitude & latitude to get current & future weather 
 
-//  async function getWeatherData (urlTwo) {
-//   const response = await fetch(urlTwo);
-//   const data = await response.json();
-//   console.log (data);
-//   const requiredData = data.daily.slice(0,6);
-//   console.log(requiredData);
+
+ // fetch request to use longitude & latitude to get future weather & the UV Index
+
+ const futureContainer = $("#future-weather-container")
+
+ async function getFutureWeatherData (urlTwo) {
+  const response = await fetch(urlTwo);
+  const data = await response.json();
+  console.log (data);
+  const requiredData = data.daily.slice(1,6);
+  console.log(requiredData);
+
+  requiredData.forEach(function (day){
+
+    // const temp = day.temp.day;
+    // const windspeed = day.wind_speed;
+    // const humidity = day.humidity;
+    // const uvi = day.uvi;
+
+const futureWeatherCard = 
+`<div class="future-weather-card">
+    <div class = "info-titles" id="card-one">
+    <img src="./Assets/Images/favicon.png" alt="icon of future weather for the chosen city">
+    <h4>Tuesday 14th April</h4>
+    </div>
   
-//  };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .then((response) => response.json())
-// .then((data) => console.log(data));
-
-
+    <table class="info-table">
   
-
-
-
-
-
+      <tr>
+      <td>Temperature</td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>Wind Speed</td>
+      <td></td>
+     
+    </tr>
+    <tr>
+      <td>Humidity</td>
+      <td></td>
+    
+    </tr>
+    <tr>
+      <td class="UV-index">UV Index</td>
+      <td></td>
+  </tr>
+    </table>
   
-  // from the data output, fetch the longitude & latitiude
+  </div>`
+
+  futureContainer.append(futureWeatherCard);
+  });
+
+};
+
+getFutureWeatherData()
 
 
 
-// construct the url using the parameters
 
-// fetch the data for the current weather & append to HTML
+
+
+
+
+
+
+
+
 
 // Changing the UVI index color 
 
-// fetch the data for the future weather & append to HTML
+
 
 // Call the UVI function
 
-// clear recent searches history
+
 

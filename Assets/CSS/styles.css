@@ -217,9 +217,10 @@ table, th, td {
     margin-top:1rem
 }
 
-.future-weather-container{
+#future-weather-container{
     display:flex;
     flex-direction:row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     margin-bottom:3rem;
     margin-top: 3rem;
